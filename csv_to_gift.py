@@ -87,10 +87,12 @@ def question_formatter(
     # it begins with '~'.
 
     for index, option in enumerate(q_and_a[1:-1]):
-        if index == int(q_and_a[ANSWER_INDEX])-1:
-            as_gift += '=' + option + ' '
-        else:
-            as_gift += '~' + option + ' '
+        
+        if option != '':
+            if index == int(q_and_a[ANSWER_INDEX])-1:
+                as_gift += '=' + option + ' '
+            else:
+                as_gift += '~' + option + ' '
     
     # closes and returns the gift formatted string.
     return as_gift + '}'
