@@ -88,8 +88,14 @@ def question_formatter(
 
     for index, option in enumerate(q_and_a[1:-1]):
         
+        # tokenizes answer column to check for multiple answers
+        answers = [int(d)-1 for d in str(q_and_a[ANSWER_INDEX])]
+
+        # first checks if the column is empty
         if option != '':
-            if index == int(q_and_a[ANSWER_INDEX])-1:
+            
+            # appends '=' if the answer is correct, else appends ''
+            if index in answers:
                 as_gift += '=' + option + ' '
             else:
                 as_gift += '~' + option + ' '
